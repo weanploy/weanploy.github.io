@@ -30,16 +30,23 @@ class PointerParticles extends HTMLElement {
                 size: Math.random() * 5 + 1,
                 speedX: Math.random() * 3 - 1.5,
                 speedY: Math.random() * 3 - 1.5,
-                color: this.generateGradientColor(i, 10),
+                color: this.generateGradientColor(i, 10), // สร้างสีไล่จาก #ffc2d1 ไปขาว
                 life: 100, // เพิ่มค่าชีวิตของพาร์ติเคิล
             });
         }
     }
 
     generateGradientColor(index, totalParticles) {
-        // ฟังก์ชันสำหรับสร้างสีแดงที่มีการไล่ระดับความเข้ม
-        const lightness = 30 + (index / totalParticles) * 50; // ไล่ระดับความเข้ม
-        return `hsl(0, 100%, ${lightness}%)`; // สีแดง (hue = 0)
+        // ฟังก์ชันสำหรับสร้างสีไล่จาก #ffc2d1 ไปยังขาว
+        const startColor = [255, 194, 209]; // RGB ของ #ffc2d1
+        const endColor = [255, 255, 255];  // RGB ของสีขาว
+        const factor = index / totalParticles;
+
+        const r = Math.round(startColor[0] + factor * (endColor[0] - startColor[0]));
+        const g = Math.round(startColor[1] + factor * (endColor[1] - startColor[1]));
+        const b = Math.round(startColor[2] + factor * (endColor[2] - startColor[2]));
+
+        return `rgb(${r}, ${g}, ${b})`;
     }
 
     animate() {

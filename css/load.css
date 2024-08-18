@@ -1,5 +1,5 @@
 body {
-  background:#000;
+  background:#ffffff;
 }
 
 #load {
@@ -20,9 +20,9 @@ body {
 #load div {
   position:absolute;
   width:30px;
-  height:40px;
+  height:30px;
   opacity:0;
-  font-size: 36px;
+  font-size: 60px;
   font-family:Helvetica, Arial, sans-serif;
   animation:move 2s linear infinite;
   -o-animation:move 2s linear infinite;
@@ -32,7 +32,7 @@ body {
   -o-transform:rotate(180deg);
   -moz-transform:rotate(180deg);
   -webkit-transform:rotate(180deg);
-  color:#f03535;
+  color:#fb6f92;
 }
 
 #load div:nth-child(2) {
